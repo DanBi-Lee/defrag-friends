@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "defrag-friends",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "카톡 친구 리스트, 전화번호부, 페이스북, 트위터, 블로그, 게임 길드원 등. 여기저기 흩어져있는 지인들을 ‘친구 조각 모음’으로 한번에 관리해보세요.",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": ""
 }
