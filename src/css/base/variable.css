@@ -1,0 +1,4 @@
+/* colors */
+@value makerBlack: #222;
+@value primaryColor: #142A77;
+@value mainGradient: linear-gradient(180deg, #142A77 0%, #6047A5 47.4%, #BC88FF 100%);

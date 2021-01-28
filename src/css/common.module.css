@@ -1,0 +1,15 @@
+[class^="hidden"] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  z-index: -9999;
+  overflow: hidden;
+}
+
+[class^="wrapInner"] {
+  max-width: 1180px;
+  height: inherit;
+  margin: 0 auto;
+}
