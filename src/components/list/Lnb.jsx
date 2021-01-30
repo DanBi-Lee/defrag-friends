@@ -1,10 +1,12 @@
 import React from 'react';
 import lnbStyles from './Lnb.module.css';
 
-function Lnb () {
+function Lnb ({user}) {
+  const name = user.displayName;
+
   return (
     <nav className={lnbStyles.lnb}>
-    <p className={lnbStyles.welcomeMessage}>홍길동님, 환영합니다.</p>
+    <p className={lnbStyles.welcomeMessage}>{name}님, 환영합니다.</p>
     <button className={lnbStyles.btn}>
         <i className="fas fa-plus"></i> 새 친구 등록
     </button>

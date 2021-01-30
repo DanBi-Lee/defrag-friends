@@ -4,7 +4,7 @@ import FriendBox from '../components/friend/FriendBox';
 import SubMainBox from '../components/templates/SubMainBox';
 import dataService from '../service/data_service';
 
-function Friend () {
+function Friend ({setLoginModal, user}) {
     const saveData = () => {
       dataService.collection("users").add({
         first: "Ada",
@@ -21,7 +21,7 @@ function Friend () {
 
   return (
     <>
-        <SubHeader />
+        <SubHeader setLoginModal={setLoginModal} user={user} />
         <SubMainBox>
             <FriendBox saveData={saveData} />
         </SubMainBox>

@@ -1,14 +1,14 @@
 import React from 'react';
-import MainHeader from '../components/common/MainHeader';
 import Footer from '../components/common/Footer';
 import VisualBox from '../components/main/VisualBox';
+import MainHeaderContainer from '../containsers/MainHeaderContainer';
 
-function Main ({setLoginModal}) {
+function Main ({setLoginModal, user}) {
   return (
       <>
-        <MainHeader setLoginModal={setLoginModal} />
+        <MainHeaderContainer setLoginModal={setLoginModal} user={user} />
         <main>
-            <VisualBox />
+            <VisualBox user={user} />
         </main>
         <Footer />
       </>

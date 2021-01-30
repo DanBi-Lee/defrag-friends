@@ -27,7 +27,8 @@
   font-size: 20px;
 }
 
-.btnStart {
+.btn {
+  display: inline-block;
   margin-top: 32px;
   background-color: #fff;
   padding: 16px 32px;
@@ -35,6 +36,13 @@
   color: #222;
   font-size: 20px;
 }
+
+.btn + .btn {
+  margin-left: 20px;
+  background-color: #1e243d;
+  color: #fff;
+}
+
 
 /* decoration */
 .decoration {

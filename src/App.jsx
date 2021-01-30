@@ -12,16 +12,15 @@ import AuthService from './service/auth_service';
 function App() {
   const authservice = new AuthService();
   const [loginModal, setLoginModal] = useState(false);
-  const [loginState, setLoginState] = useState(false);
   const [user, setUser] = useState(null);
-
+  if(user){
+    console.log(user.uid);
+  }
   authservice.checkLogin(user=>{
     if(user){
       setUser(()=>user);
-      setLoginState(()=>true);
     }else{
       setUser(()=>null);
-      setLoginState(()=>false);
     }
   });
 
@@ -29,17 +28,17 @@ function App() {
     <>
       <Switch>
         <Route path="/" exact>
-          <Main setLoginModal={setLoginModal} />
+          <Main setLoginModal={setLoginModal} user={user} />
         </Route>
         <Route path="/list">
-          <List />
+          <List setLoginModal={setLoginModal} user={user} />
         </Route>
         <Route path="/friend">
-          <Friend/>
+          <Friend setLoginModal={setLoginModal} user={user}/>
         </Route>
       </Switch>
       <div>
-        {loginState? '로그인 되어있다!' : '로그인 안되어있음!'}
+        {user? '로그인 되어있다!' : '로그인 안되어있음!'}
       </div>
       { loginModal && <LoginContainer setLoginModal={setLoginModal} authservice={authservice} /> }
     </>
