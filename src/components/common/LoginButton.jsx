@@ -1,6 +1,11 @@
 import React from 'react';
+import AuthService from '../../service/auth_service';
 
 function LoginButton ({setLoginModal, user}) {
+    const authService = new AuthService()
+    const logout = () => {
+        authService.logout();
+    }
     const openLoginModal = () => {
         setLoginModal(()=>true);
     }
@@ -8,7 +13,7 @@ function LoginButton ({setLoginModal, user}) {
       <>
           {
                 user ? 
-                <button className="btn-logout">
+                <button className="btn-logout" onClick={logout}>
                     로그아웃
                 </button>
                 :
