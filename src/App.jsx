@@ -7,9 +7,23 @@ import List from './pages/List';
 import Main from './pages/Main';
 import Friend from './pages/Friend';
 import { useState } from 'react';
+import AuthService from './service/auth_service';
 
 function App() {
+  const authservice = new AuthService();
   const [loginModal, setLoginModal] = useState(false);
+  const [loginState, setLoginState] = useState(false);
+  const [user, setUser] = useState(null);
+
+  authservice.checkLogin(user=>{
+    if(user){
+      setUser(()=>user);
+      setLoginState(()=>true);
+    }else{
+      setUser(()=>null);
+      setLoginState(()=>false);
+    }
+  });
 
   return (
     <>
@@ -24,7 +38,10 @@ function App() {
           <Friend/>
         </Route>
       </Switch>
-      { loginModal && <LoginContainer setLoginModal={setLoginModal} /> }
+      <div>
+        {loginState? '로그인 되어있다!' : '로그인 안되어있음!'}
+      </div>
+      { loginModal && <LoginContainer setLoginModal={setLoginModal} authservice={authservice} /> }
     </>
   );
 }

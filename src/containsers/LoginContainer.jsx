@@ -1,11 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Login from '../components/Login';
-import AuthService from '../service/auth_service';
 
-function LoginContainer ({setLoginModal}) {
+function LoginContainer ({setLoginModal, authservice}) {
   const history = useHistory();
-  const authservice = new AuthService();
   const closeModal = () => {
     setLoginModal(()=>false);
   }

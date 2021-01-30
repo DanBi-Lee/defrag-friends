@@ -15,6 +15,10 @@ class AuthService {
   joinWidthEmail(email, password) {
     return firebaseApp.auth().createUserWithEmailAndPassword(email, password);
   }
+
+  checkLogin(callback) {
+    firebase.auth().onAuthStateChanged(callback);
+  }
 }
 
 export default AuthService;
