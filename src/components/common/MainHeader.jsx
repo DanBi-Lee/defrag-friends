@@ -3,7 +3,11 @@ import logo from '../../images/logo.svg';
 import headerStyles from './Header.module.css';
 import { Link } from 'react-router-dom';
 
-function MainHeader () {
+function MainHeader ({setLoginModal}) {
+    const openLoginModal = () => {
+        setLoginModal(()=>true);
+    }
+
   return (
     <header className={headerStyles.headBox}>
         <div className="wrapInner">
@@ -12,7 +16,7 @@ function MainHeader () {
                     <img src={logo} alt="친구조각모음" width="124" />
                 </Link>
             </h1>
-            <button className="btn-login">
+            <button className="btn-login" onClick={openLoginModal}>
                 로그인
             </button>
         </div>

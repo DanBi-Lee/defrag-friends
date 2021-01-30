@@ -6,13 +6,16 @@ import './css/common.module.css';
 import List from './pages/List';
 import Main from './pages/Main';
 import Friend from './pages/Friend';
+import { useState } from 'react';
 
 function App() {
+  const [loginModal, setLoginModal] = useState(false);
+
   return (
     <>
       <Switch>
         <Route path="/" exact>
-          <Main />
+          <Main setLoginModal={setLoginModal} />
         </Route>
         <Route path="/list">
           <List />
@@ -21,7 +24,7 @@ function App() {
           <Friend/>
         </Route>
       </Switch>
-      {/* <LoginContainer /> */}
+      { loginModal && <LoginContainer setLoginModal={setLoginModal} /> }
     </>
   );
 }

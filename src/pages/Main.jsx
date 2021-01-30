@@ -3,10 +3,10 @@ import MainHeader from '../components/common/MainHeader';
 import Footer from '../components/common/Footer';
 import VisualBox from '../components/main/VisualBox';
 
-function Main () {
+function Main ({setLoginModal}) {
   return (
       <>
-        <MainHeader />
+        <MainHeader setLoginModal={setLoginModal} />
         <main>
             <VisualBox />
         </main>

@@ -4,22 +4,35 @@ import logo from '../images/logo.svg';
 import people from '../images/illust/people2.svg';
 import shape from '../images/illust/vectorImage2.png';
 
-function Login ({authservice}) {
+function Login ({authservice, closeModal, history}) {
     const email = useRef();
     const password = useRef();
 
-    const snsLogin = (event) => {
+    const snsLogin = async (event) => {
         event.preventDefault();
         const sns = event.target.dataset.sns;
-        authservice.loginWidthSNS(sns);
+        const data = await authservice.loginWidthSNS(sns);
+        console.log(`로그인 완료! ${data}`);
+        closeModal();
+        history.push('/list');
     }
-    const emailLogin = (event) => {
+    const emailLogin = async (event) => {
         event.preventDefault();
-        authservice.loginWidthEmail(email.current.value, password.current.value);
+        const data = await authservice.loginWidthEmail(email.current.value, password.current.value);
+        console.log(`로그인 완료! ${data}`);
+        closeModal();
+        history.push('/list');
+    }
+
+    const handleBackground = (event) => {
+        if(!event.target.dataset.background){
+            return;
+        }
+        closeModal();
     }
 
   return (
-      <div className={LoginStyles.background}>
+      <div className={LoginStyles.background} onClick={handleBackground} data-background="background">
           <section className={LoginStyles.modal}>
               <div className={LoginStyles.img}>
                   <img className={LoginStyles.logo} src={logo} alt="logo" />
@@ -40,7 +53,7 @@ function Login ({authservice}) {
                       </div>
                   </form>
               </div>
-              <button className={LoginStyles.btnClose}><span className="hidden">닫기</span></button>
+              <button className={LoginStyles.btnClose} onClick={closeModal}><span className="hidden">닫기</span></button>
           </section>
       </div>
   );
