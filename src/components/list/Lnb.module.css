@@ -1,0 +1,41 @@
+.lnb {
+  width: 250px;
+  height: 100%;
+  flex-shrink: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.lnb > .welcomeMessage {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.lnb .btn {
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding: 12px;
+  border-radius: 50px;
+}
+
+.lnb > ul {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.lnb > ul::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #999;
+  position: absolute;
+  top: -20px;
+}
+
+.lnb > ul > li + li {
+  margin-top: 20px;
+}

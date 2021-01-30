@@ -1,0 +1,11 @@
+.friendBox {
+  width: 100%;
+  background-image: linear-gradient(90deg, #454545 50%, #eee 50%);
+}
+
+.friendBox > .innerWrap {
+  max-width: 2000px;
+  height: 100%;
+  display: flex;
+  margin: 0px auto;
+}
