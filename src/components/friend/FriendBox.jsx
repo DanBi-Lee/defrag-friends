@@ -3,11 +3,11 @@ import Editor from './Editor';
 import friendBoxStyles from './FriendBox.module.css';
 import PreviewBox from './PreviewBox';
 
-function FriendBox () {
+function FriendBox ({saveData}) {
   return (
     <section className={friendBoxStyles.friendBox}>
     <div className={friendBoxStyles.innerWrap}>
-        <PreviewBox />
+        <PreviewBox saveData={saveData} />
         <Editor />
     </div>
 </section>
