@@ -12,7 +12,7 @@ class AuthService {
     return firebaseApp.auth().signInWithPopup(authProvider);
   }
 
-  joinWidthEmail(email, password) {
+  joinWithEmail(email, password) {
     return firebaseApp.auth().createUserWithEmailAndPassword(email, password);
   }
 

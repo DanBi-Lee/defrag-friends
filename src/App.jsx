@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import LoginContainer from './containsers/LoginContainer';
+import ModalContainer from './containsers/ModalContainer';
 import './css/reset.module.css';
 import './css/common.module.css';
 import List from './pages/List';
@@ -8,6 +8,7 @@ import Main from './pages/Main';
 import Friend from './pages/Friend';
 import { useState } from 'react';
 import AuthService from './service/auth_service';
+import MemberModalBox from './components/MemberModalBox';
 
 function App() {
   const authservice = new AuthService();
@@ -40,7 +41,7 @@ function App() {
       <div>
         {user? '로그인 되어있다!' : '로그인 안되어있음!'}
       </div>
-      { loginModal && <LoginContainer setLoginModal={setLoginModal} authservice={authservice} /> }
+      { loginModal && <ModalContainer setLoginModal={setLoginModal} authservice={authservice} /> }
     </>
   );
 }

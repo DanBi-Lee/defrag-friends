@@ -23,10 +23,12 @@
   width: 1180px;
   height: 650px;
   margin: auto;
+  background-color: #fff;
+  border-radius: 24px;
 }
 
 .img,
-.login {
+.memberBox {
   width: 50%;
 }
 
@@ -60,7 +62,7 @@
   left: -40px;
 }
 
-.login {
+.memberBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,58 +71,59 @@
   border-radius: 0px 24px 24px 0px;
 }
 
-.login h1 {
+.memberBox h1 {
   margin-bottom: 20px;
 }
 
-.login > form {
+.memberBox > form {
   min-width: 300px;
+  max-width: 400px;
 }
 
-.login input[type="text"],
-.login input[type="password"],
-.login button {
+.memberBox input[type="text"],
+.memberBox input[type="password"],
+.memberBox button {
   width: 100%;
   height: 52px;
   margin-bottom: 20px;
   box-sizing: border-box;
 }
 
-.login input[type="text"],
-.login input[type="password"] {
+.memberBox input[type="text"],
+.memberBox input[type="password"] {
   border: 2px solid #999;
   text-indent: 20px;
 }
 
-.login button {
+.memberBox button {
   background-color: #172b79;
   color: #fff;
   border-radius: 4px;
 }
 
-.login .btnJoin {
+.memberBox .btnJoin {
   background-color: #fff;
   color: #172b79;
   border: 2px solid;
 }
 
-.login .snsBox {
+.memberBox .snsBox {
   text-align: center;
 }
 
-.login .snsBox > button {
+.memberBox .snsBox > button {
   width: 52px;
   height: 52px;
   border-radius: 50%;
   margin-bottom: 0px;
 }
 
-.login .snsBox > p {
+.memberBox .snsBox > p {
   margin-bottom: 10px;
   color: #666;
 }
 
-.login .snsBox > button + button {
+.memberBox .snsBox > button + button {
   margin-left: 10px;
 }
 
@@ -148,4 +151,17 @@
   height: 1px;
   background-color: #222;
   transform: rotate(-45deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.join {
+  animation: fadeIn 300ms ease-in-out 1 alternate;
 }
