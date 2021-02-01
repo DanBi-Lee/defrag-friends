@@ -8,7 +8,6 @@ import Main from './pages/Main';
 import Friend from './pages/Friend';
 import { useState } from 'react';
 import AuthService from './service/auth_service';
-import MemberModalBox from './components/MemberModalBox';
 
 function App() {
   const authservice = new AuthService();
@@ -38,9 +37,6 @@ function App() {
           <Friend setLoginModal={setLoginModal} user={user}/>
         </Route>
       </Switch>
-      <div>
-        {user? '로그인 되어있다!' : '로그인 안되어있음!'}
-      </div>
       { loginModal && <ModalContainer setLoginModal={setLoginModal} authservice={authservice} /> }
     </>
   );
