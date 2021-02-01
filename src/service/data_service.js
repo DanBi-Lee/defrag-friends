@@ -22,6 +22,22 @@ class DataService {
         name: "category",
       });
   }
+
+  getCategoryList(user) {
+    return data
+      .collection("users")
+      .doc(user.uid)
+      .collection("categoryList")
+      .get();
+  }
+
+  getFriendList(user) {
+    return data
+      .collection("users")
+      .doc(user.uid)
+      .collection("friendList")
+      .get();
+  }
 }
 
 export default DataService;
