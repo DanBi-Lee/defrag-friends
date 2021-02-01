@@ -14,7 +14,7 @@ function MemberModalBox ({authservice, closeModal, history}) {
     const snsLogin = async (event) => {
         event.preventDefault();
         const sns = event.target.dataset.sns;
-        const data = await authservice.loginWidthSNS(sns);
+        const data = await authservice.loginWithSNS(sns);
         console.log(`로그인 완료! ${data}`);
         closeModal();
         history.push('/list');
@@ -22,7 +22,7 @@ function MemberModalBox ({authservice, closeModal, history}) {
 
     const emailLogin = async (event) => {
         event.preventDefault();
-        const data = await authservice.loginWidthEmail(email.current.value, password.current.value);
+        const data = await authservice.loginWithEmail(email.current.value, password.current.value);
         console.log(`로그인 완료! ${data}`);
         closeModal();
         history.push('/list');

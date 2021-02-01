@@ -3,11 +3,11 @@ import firebaseApp from "./firebase";
 import "firebase/auth";
 
 class AuthService {
-  loginWidthEmail(email, password) {
+  loginWithEmail(email, password) {
     return firebaseApp.auth().signInWithEmailAndPassword(email, password);
   }
 
-  loginWidthSNS(providerName) {
+  loginWithSNS(providerName) {
     const authProvider = new firebase.auth[`${providerName}AuthProvider`]();
     return firebaseApp.auth().signInWithPopup(authProvider);
   }
