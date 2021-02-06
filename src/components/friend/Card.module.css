@@ -1,0 +1,54 @@
+.card {
+  display: grid;
+  grid-template-columns: 160px 93px 127px 420px;
+  grid-template-rows: 160px auto 160px;
+  grid-gap: 20px;
+  width: 940px;
+  height: 540px;
+  background-color: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+
+.thumb {
+  grid-column: 1;
+  background: #eee;
+}
+
+.nameBox {
+  grid-column: 2 / span 2;
+  align-self: center;
+}
+
+.nameBox > .name {
+  font-size: 52px;
+}
+
+.nameBox > .nickname {
+  font-size: 32px;
+  color: #999;
+}
+
+.subInfo {
+  grid-column: 1 / span 3;
+  align-self: center;
+}
+
+.snsBox {
+  grid-column: 1 / span 3;
+}
+
+.memo {
+  grid-column: 4/-1;
+  grid-row: 1/-1;
+}
+
+.memo > pre {
+  width: 100%;
+  height: 100%;
+  white-space: pre-wrap;
+  background: #eee;
+  padding: 20px;
+  box-sizing: border-box;
+}
