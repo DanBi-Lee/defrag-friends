@@ -9,9 +9,13 @@
   padding: 40px;
   box-sizing: border-box;
   font-size: 24px;
+  overflow: hidden;
 }
 
 .thumb {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
   grid-column: 1;
   background: #eee;
 }
@@ -47,6 +51,7 @@
 .memo {
   grid-column: 4/-1;
   grid-row: 1/-1;
+  overflow: hidden;
 }
 
 .memo > pre {
@@ -56,4 +61,5 @@
   background: #eee;
   padding: 20px;
   box-sizing: border-box;
+  overflow: auto;
 }

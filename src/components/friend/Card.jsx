@@ -4,7 +4,7 @@ import cardStyles from './Card.module.css';
 function Card ({friendInfo}) {
   return (
       <div className={cardStyles.card}>
-            <img src="" alt="" className={cardStyles.thumb }/>
+            <img src={friendInfo.thumb} alt="" className={cardStyles.thumb}/>
             <div className={cardStyles.nameBox}>
                 <p className={cardStyles.name}>{friendInfo.name}</p>
                 <p className={cardStyles.nickname}>{friendInfo.nickname}</p>
@@ -14,9 +14,12 @@ function Card ({friendInfo}) {
                 <p className={cardStyles.tel}>{friendInfo.tel}</p>
                 <p className={cardStyles.email}>{friendInfo.email}</p>
             </div>
-            <div className={cardStyles.snsBox}>
-                sns
-            </div>
+            <ul className={cardStyles.snsBox}>
+                <li>인스타그램 : {friendInfo.instagram}</li>
+                <li>카카오톡 : {friendInfo.kakaotalk}</li>
+                <li>트위터 : {friendInfo.twitter}</li>
+                <li>페이스북 : {friendInfo.facebook}</li>
+            </ul>
           <div className={cardStyles.memo}>
             <pre>
                 {friendInfo.memo}
