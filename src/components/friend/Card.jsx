@@ -8,6 +8,7 @@ function Card ({friendInfo}) {
             <div className={cardStyles.nameBox}>
                 <p className={cardStyles.name}>{friendInfo.name}</p>
                 <p className={cardStyles.nickname}>{friendInfo.nickname}</p>
+                <p className={cardStyles.birthday}>생일 : {friendInfo.birthday}</p>
             </div>
             <div className={cardStyles.subInfo}>
                 <p className={cardStyles.tel}>{friendInfo.tel}</p>

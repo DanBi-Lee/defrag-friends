@@ -16,20 +16,25 @@
   background: #eee;
 }
 
+/* .nameBox */
 .nameBox {
   grid-column: 2 / span 2;
   align-self: center;
 }
 
-.nameBox > .name {
-  font-size: 52px;
+.name {
+  font-size: 40px;
 }
 
-.nameBox > .nickname {
-  font-size: 32px;
+.nickname {
   color: #999;
 }
 
+.birthday {
+  color: #999;
+}
+
+/* .subInfo */
 .subInfo {
   grid-column: 1 / span 3;
   align-self: center;

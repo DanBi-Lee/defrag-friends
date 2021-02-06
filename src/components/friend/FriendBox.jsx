@@ -12,7 +12,8 @@ function FriendBox ({saveData}) {
     email: '이메일',
     stie : '블로그, 웹사이트',
     sns: { instagram : '', kakaoTalk : '', twitter: '', facebook: ''},
-    memo: `메모`
+    memo: `메모`,
+    birthday: '1900-01-01'
   }
   const [friendInfo, setFriendInfo] = useState(initFriendState);
 
