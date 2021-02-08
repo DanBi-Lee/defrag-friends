@@ -1,0 +1,23 @@
+.background {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  z-index: 3000;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.background > section {
+  background-color: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}

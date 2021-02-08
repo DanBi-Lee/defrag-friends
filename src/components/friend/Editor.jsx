@@ -1,7 +1,7 @@
 import React from 'react';
 import EditorStyles from './Editor.module.css';
 
-function Editor ({friendInfo, setFriendInfo}) {
+function Editor ({friendInfo, setFriendInfo, setImgData}) {
     const handlingEditor = event => {
         const {id : key } = event.target;
         const {value} = event.target;
@@ -15,6 +15,11 @@ function Editor ({friendInfo, setFriendInfo}) {
             setFriendInfo( {...friendInfo, [key]: e.target.result});
         }, false);
         reader.readAsDataURL(event.target.files[0]);
+
+        const formData = new FormData();
+        formData.append("file", event.target.files[0]);
+        formData.append("upload_preset", "defrag-friend");
+        setImgData(()=>formData);
     };
 
   return (
