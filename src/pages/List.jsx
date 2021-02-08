@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import SubHeader from '../components/common/SubHeader';
-import FriendListBox from '../components/list/FriendListBox';
-import Lnb from '../components/list/Lnb';
 import SubMainBox from '../components/templates/SubMainBox';
+import FriendListContainer from '../containsers/FriendListContainer';
 
 function List ({setLoginModal, user}) {
   const history = useHistory();
@@ -23,8 +22,7 @@ function List ({setLoginModal, user}) {
     <>
         <SubHeader setLoginModal={setLoginModal} user={user} />
         <SubMainBox>
-          <Lnb user={user}  />
-          <FriendListBox user={user}  />
+          <FriendListContainer user={user} />
         </SubMainBox>
     </>
   );

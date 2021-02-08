@@ -1,0 +1,18 @@
+.cardWrap {
+  width: 33%;
+  height: auto;
+  padding-top: 16%;
+  position: relative;
+  background: #fa0;
+}
+
+.cardWrap > .scale {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.scale {
+  transform: scale(0.4);
+  transform-origin: top left;
+}
