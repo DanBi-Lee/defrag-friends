@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import DataService from '../../service/data_service';
 import EditorStyles from './Editor.module.css';
 
-function Editor ({friendInfo, setFriendInfo, setImgData}) {
+function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
+    const [categoryList, setCategoryList] = useState([]);
+    const dataService = useMemo(()=>new DataService(), []);
+
     const handlingEditor = event => {
         const {id : key } = event.target;
         const {value} = event.target;
@@ -22,6 +26,18 @@ function Editor ({friendInfo, setFriendInfo, setImgData}) {
         setImgData(()=>formData);
     };
 
+    useEffect(()=>{
+        const getCategofyList = async () => {
+            const list = [];
+            const data = await dataService.getCategoryList(user);
+            data.forEach(function(doc){
+                list.push({...doc.data(), id : doc.id });
+              });
+              return list;
+        }
+        getCategofyList().then((data)=>setCategoryList(()=>data));
+    }, [user, setCategoryList, dataService]);
+
   return (
     <div className={EditorStyles.inputBox}>
     <form>
@@ -29,9 +45,10 @@ function Editor ({friendInfo, setFriendInfo, setImgData}) {
             <li>
                 <label htmlFor="category">카테고리</label>
                 <select name="category" id="category" onChange={handlingEditor} >
-                    <option value="미분류">미분류</option>
-                    <option value="만들어놓은">만들어놓은</option>
-                    <option value="카테고리">카테고리 리스트</option>
+                    <option value="">미분류</option>
+                    {
+                        categoryList.map(category=><option key={category.id} value={category.id}>{category.name}</option>)
+                    }
                 </select>
             </li>
             <li>

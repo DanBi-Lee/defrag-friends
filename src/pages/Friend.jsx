@@ -71,7 +71,7 @@ const loadingSpinner = useCallback(() => {
     <>
         <SubHeader setLoginModal={setLoginModal} user={user} />
         <SubMainBox>
-            <FriendBox saveData={handlingSaveBtn} friendInfo={friendInfo} setFriendInfo={setFriendInfo} setImgData={setImgData}  />
+            <FriendBox saveData={handlingSaveBtn} friendInfo={friendInfo} setFriendInfo={setFriendInfo} setImgData={setImgData} user={user}  />
         </SubMainBox>
         {loadingSpinner()}
     </>

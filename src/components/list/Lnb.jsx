@@ -34,6 +34,7 @@ function Lnb ({friendList, categoryList, name, addCategory}) {
       전체 친구 ({friendList.length}명)
     </p>
     <ul>
+      <li>미분류</li>
       {
         categoryList.map(category=><li key={category.id}>{category.name}</li>)
       }
