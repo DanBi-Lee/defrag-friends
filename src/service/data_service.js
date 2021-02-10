@@ -5,6 +5,7 @@ const data = firebaseApp.firestore();
 
 class DataService {
   addFriend(user, friend) {
+    console.log(friend);
     return data
       .collection("users")
       .doc(user.uid)
@@ -17,10 +18,7 @@ class DataService {
       .collection("users")
       .doc(user.uid)
       .collection("categoryList")
-      .doc(category)
-      .set({
-        name: "category",
-      });
+      .add(category);
   }
 
   getCategoryList(user) {

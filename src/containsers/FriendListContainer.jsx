@@ -8,10 +8,10 @@ function FriendListContainer ({user}) {
     const [friendList, setFriendList] = useState([]);
     const name = user.displayName;
     const dataService = useMemo(()=>new DataService(), []);
-    const addCategory = () => {
-        dataService.addCategory(user, '미분류');
+    const addCategory = (category) => {
+        dataService.addCategory(user, category);
       }
-      useEffect(()=>{
+    useEffect(()=>{
         const getCategoryList = async () => {
           const list = [];
           const data = await dataService.getCategoryList(user);
@@ -32,7 +32,7 @@ function FriendListContainer ({user}) {
         }
         getFriendList().then((data)=>setFriendList(()=>data));
     
-      }, [dataService, user]);
+    }, [dataService, user]);
 
   return (
       <>
