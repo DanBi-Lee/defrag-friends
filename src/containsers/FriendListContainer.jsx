@@ -16,7 +16,7 @@ function FriendListContainer ({user}) {
           const list = [];
           const data = await dataService.getCategoryList(user);
           data.forEach(function(doc){
-            list.push(doc.id);
+            list.push({...doc.data(), id : doc.id });
           });
           return list;
         }

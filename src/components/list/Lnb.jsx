@@ -35,7 +35,7 @@ function Lnb ({friendList, categoryList, name, addCategory}) {
     </p>
     <ul>
       {
-        categoryList.map(category=><li key={category}>{category}</li>)
+        categoryList.map(category=><li key={category.id}>{category.name}</li>)
       }
     </ul>
     <form className={lnbStyles.categoryForm} >
