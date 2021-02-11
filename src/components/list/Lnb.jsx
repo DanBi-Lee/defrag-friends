@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import lnbStyles from './Lnb.module.css';
 
-function Lnb ({friendList, categoryList, name, addCategory, setSelectState, selectState}) {
+function Lnb ({friendList, categoryList, name, addCategory, setSelectState, selectState, removeCategory}) {
   const [activateInput, setActivateInput] = useState(false);
   const btn = useRef();
   const caterogyInput = useRef();
@@ -48,7 +48,19 @@ function Lnb ({friendList, categoryList, name, addCategory, setSelectState, sele
         <button onClick={()=>selectCategory({id: '', name: '미분류'})}>미분류</button>
       </li>
       {
-        categoryList.map(category=><li key={category.id}><button onClick={()=>selectCategory(category)}>{category.name}</button></li>)
+        categoryList.map(category=>{
+          return (
+          <li key={category.id}>
+            <button onClick={()=>selectCategory(category)}>{category.name}</button>
+            <button className={lnbStyles.delete} onClick={()=>removeCategory(category.id)} title="삭제">
+              <i className="far fa-trash-alt"></i>
+              <span className="hidden">
+                삭제
+              </span>
+            </button>
+          </li>
+          );
+      })
       }
     </ul>
     <form className={lnbStyles.categoryForm} >

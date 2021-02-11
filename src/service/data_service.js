@@ -36,6 +36,15 @@ class DataService {
       .collection("friendList")
       .get();
   }
+
+  removeCategory(user, categoryId) {
+    return data
+      .collection("users")
+      .doc(user.uid)
+      .collection("categoryList")
+      .doc(categoryId)
+      .delete();
+  }
 }
 
 export default DataService;

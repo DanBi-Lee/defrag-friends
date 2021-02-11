@@ -37,8 +37,28 @@
   top: -20px;
 }
 
+.lnb > ul > li {
+  display: flex;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.lnb > ul > li > button:first-of-type {
+  flex-grow: 1;
+  text-align: left;
+}
+
 .lnb > ul > li + li {
   margin-top: 20px;
+}
+
+.delete {
+  color: darkred;
+  display: none;
+}
+
+.lnb > ul > li:hover .delete {
+  display: block;
 }
 
 .categoryForm {

@@ -19,8 +19,9 @@ button {
   background-color: inherit;
   border: none;
   color: inherit;
-  outline: none;
+  /* outline: none; */
   cursor: pointer;
+  font-size: inherit;
 }
 
 main {

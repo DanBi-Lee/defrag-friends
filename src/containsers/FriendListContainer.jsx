@@ -12,6 +12,11 @@ function FriendListContainer ({user}) {
     const addCategory = (category) => {
         dataService.addCategory(user, category);
       }
+    
+      const removeCategory = (categoryId) => {
+        dataService.removeCategory(user, categoryId).then(()=>console.log('삭제 완료'));
+      }
+
     useEffect(()=>{
         const getCategoryList = async () => {
           const list = [];
@@ -37,7 +42,7 @@ function FriendListContainer ({user}) {
 
   return (
       <>
-          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} setSelectState={setSelectState} selectState={selectState} />
+          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} setSelectState={setSelectState} selectState={selectState} removeCategory={removeCategory} />
           <FriendListBox user={user}  friendList={friendList} selectState={selectState} /> 
       </>
   );
