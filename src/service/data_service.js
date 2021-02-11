@@ -47,6 +47,15 @@ class DataService {
       .doc(categoryId)
       .delete();
   }
+
+  removeFriend(user, friendId) {
+    return data
+      .collection("users")
+      .doc(user.uid)
+      .collection("friendList")
+      .doc(friendId)
+      .delete();
+  }
 }
 
 export default DataService;

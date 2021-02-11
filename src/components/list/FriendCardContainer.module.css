@@ -1,18 +1,30 @@
-.cardWrap {
+.li {
   width: 33%;
+}
+
+.cardWrap {
+  width: 100%;
   height: auto;
-  padding-top: 16%;
+  padding-top: 58%;
   position: relative;
   background: #fa0;
 }
 
 .cardWrap > .scale {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  transform: translate(-50%, -50%) scale(0.3);
+  top: 50%;
+  left: 50%;
 }
 
-.scale {
-  transform: scale(0.4);
-  transform-origin: top left;
+.deleteBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+.cardWrap:hover .deleteBtn,
+.deleteBtn:focus {
+  z-index: 1;
 }
