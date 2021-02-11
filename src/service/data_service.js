@@ -21,12 +21,14 @@ class DataService {
       .add(category);
   }
 
-  getCategoryList(user) {
+  getCategoryList(user, callback) {
     return data
       .collection("users")
       .doc(user.uid)
       .collection("categoryList")
-      .get();
+      .onSnapshot((data) => {
+        callback(data.docs);
+      });
   }
 
   getFriendList(user) {

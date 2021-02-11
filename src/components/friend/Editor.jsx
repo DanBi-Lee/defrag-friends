@@ -27,15 +27,14 @@ function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
     };
 
     useEffect(()=>{
-        const getCategofyList = async () => {
-            const list = [];
-            const data = await dataService.getCategoryList(user);
-            data.forEach(function(doc){
-                list.push({...doc.data(), id : doc.id });
-              });
-              return list;
-        }
-        getCategofyList().then((data)=>setCategoryList(()=>data));
+        dataService.getCategoryList(user, (list)=>{
+            const categoryList = list.map(category=>{
+              return {
+                ...category.data(), id : category.id
+              }
+            });
+            setCategoryList(()=>categoryList);
+          });
     }, [user, setCategoryList, dataService]);
 
   return (

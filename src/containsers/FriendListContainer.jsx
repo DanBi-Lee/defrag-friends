@@ -4,7 +4,7 @@ import Lnb from '../components/list/Lnb';
 import DataService from '../service/data_service';
 
 function FriendListContainer ({user}) {
-    const [categoryList, setCategory] = useState([]);
+    const [categoryList, setCategoryList] = useState([]);
     const [friendList, setFriendList] = useState([]);
     const [selectState, setSelectState] = useState({categoryId: '', categoryName: '', isSelect: false});
     const name = user.displayName;
@@ -18,16 +18,6 @@ function FriendListContainer ({user}) {
       }
 
     useEffect(()=>{
-        const getCategoryList = async () => {
-          const list = [];
-          const data = await dataService.getCategoryList(user);
-          data.forEach(function(doc){
-            list.push({...doc.data(), id : doc.id });
-          });
-          return list;
-        }
-        getCategoryList().then((data)=>setCategory(()=>data));
-    
         const getFriendList = async () => {
           const list = [];
           const data = await dataService.getFriendList(user);
@@ -37,7 +27,16 @@ function FriendListContainer ({user}) {
           return list;
         }
         getFriendList().then((data)=>setFriendList(()=>data));
-    
+
+        dataService.getCategoryList(user, (list)=>{
+          const categoryList = list.map(category=>{
+            return {
+              ...category.data(), id : category.id
+            }
+          });
+          setCategoryList(()=>categoryList);
+        });
+        
     }, [dataService, user]);
 
   return (
