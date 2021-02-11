@@ -27,14 +27,16 @@ function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
     };
 
     useEffect(()=>{
-        dataService.getCategoryList(user, (list)=>{
-            const categoryList = list.map(category=>{
-              return {
-                ...category.data(), id : category.id
-              }
-            });
-            setCategoryList(()=>categoryList);
-          });
+        if(user){
+            dataService.getCategoryList(user, (list)=>{
+                const categoryList = list.map(category=>{
+                  return {
+                    ...category.data(), id : category.id
+                  }
+                });
+                setCategoryList(()=>categoryList);
+              });
+        }
     }, [user, setCategoryList, dataService]);
 
   return (
