@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import lnbStyles from './Lnb.module.css';
 
-function Lnb ({friendList, categoryList, name, addCategory}) {
+function Lnb ({friendList, categoryList, name, addCategory, setSelectState, selectState}) {
   const [activateInput, setActivateInput] = useState(false);
   const btn = useRef();
   const caterogyInput = useRef();
@@ -24,6 +24,16 @@ function Lnb ({friendList, categoryList, name, addCategory}) {
     }
   }
 
+  const selectCategory = (category) => {
+    const { id : categoryId, name : categoryName,  isSelect} = category;
+    const categoryState = {
+      categoryId,
+      categoryName,
+      isSelect: isSelect === undefined ? true : false
+    }
+    setSelectState({...selectState, ...categoryState});
+  }
+
   return (
     <nav className={lnbStyles.lnb}>
     <p className={lnbStyles.welcomeMessage}>{name}님, 환영합니다.</p>
@@ -31,12 +41,14 @@ function Lnb ({friendList, categoryList, name, addCategory}) {
         <i className="fas fa-plus"></i> 새 친구 등록
     </button>
     <p>
-      전체 친구 ({friendList.length}명)
+      <button onClick={()=>selectCategory({isSelect: false})}>전체 친구 ({friendList.length}명)</button>
     </p>
     <ul>
-      <li>미분류</li>
+      <li>
+        <button onClick={()=>selectCategory({id: '', name: '미분류'})}>미분류</button>
+      </li>
       {
-        categoryList.map(category=><li key={category.id}>{category.name}</li>)
+        categoryList.map(category=><li key={category.id}><button onClick={()=>selectCategory(category)}>{category.name}</button></li>)
       }
     </ul>
     <form className={lnbStyles.categoryForm} >

@@ -6,6 +6,7 @@ import DataService from '../service/data_service';
 function FriendListContainer ({user}) {
     const [categoryList, setCategory] = useState([]);
     const [friendList, setFriendList] = useState([]);
+    const [selectState, setSelectState] = useState({categoryId: '', categoryName: '', isSelect: false});
     const name = user.displayName;
     const dataService = useMemo(()=>new DataService(), []);
     const addCategory = (category) => {
@@ -36,8 +37,8 @@ function FriendListContainer ({user}) {
 
   return (
       <>
-          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} />
-          <FriendListBox user={user}  friendList={friendList} /> 
+          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} setSelectState={setSelectState} selectState={selectState} />
+          <FriendListBox user={user}  friendList={friendList} selectState={selectState} /> 
       </>
   );
 }
