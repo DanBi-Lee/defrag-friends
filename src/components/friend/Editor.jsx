@@ -46,7 +46,7 @@ function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
             <li>
                 <label htmlFor="category">카테고리</label>
                 <select name="category" id="category" onChange={handlingEditor} >
-                    <option value="">미분류</option>
+                    <option value="미분류">미분류</option>
                     {
                         categoryList.map(category=><option key={category.id} value={category.id}>{category.name}</option>)
                     }

@@ -45,7 +45,7 @@ function Lnb ({friendList, categoryList, name, addCategory, setSelectState, sele
     </p>
     <ul>
       <li>
-        <button onClick={()=>selectCategory({id: '', name: '미분류'})}>미분류</button>
+        <button onClick={()=>selectCategory({id: '미분류', name: '미분류'})}>미분류</button>
       </li>
       {
         categoryList.map(category=>{
