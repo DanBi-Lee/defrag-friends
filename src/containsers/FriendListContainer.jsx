@@ -22,15 +22,24 @@ function FriendListContainer ({user}) {
     }
 
     useEffect(()=>{
-        const getFriendList = async () => {
-          const list = [];
-          const data = await dataService.getFriendList(user);
-          data.forEach(function(doc){
-            list.push({...doc.data(), id : doc.id });
+        // const getFriendList = async () => {
+        //   const list = [];
+        //   const data = await dataService.getFriendList(user);
+        //   data.forEach(function(doc){
+        //     list.push({...doc.data(), id : doc.id });
+        //   });
+        //   return list;
+        // }
+        // getFriendList().then((data)=>setFriendList(()=>data));
+
+        const unsubscribeFriendList = dataService.getFriendList(user, (list)=>{
+          const friendList = list.map(friend=>{
+            return {
+              ...friend.data(), id : friend.id
+            }
           });
-          return list;
-        }
-        getFriendList().then((data)=>setFriendList(()=>data));
+          setFriendList(()=>friendList);
+        });
 
         const unsubscribeCategoryList = dataService.getCategoryList(user, (list)=>{
           const categoryList = list.map(category=>{
@@ -41,7 +50,10 @@ function FriendListContainer ({user}) {
           setCategoryList(()=>categoryList);
         });
         
-        return unsubscribeCategoryList;
+        return ()=>{
+          unsubscribeFriendList();
+          unsubscribeCategoryList();
+        }
     }, [dataService, user]);
 
   return (

@@ -31,13 +31,23 @@ class DataService {
       });
   }
 
-  getFriendList(user) {
+  getFriendList(user, callback) {
     return data
       .collection("users")
       .doc(user.uid)
       .collection("friendList")
-      .get();
+      .onSnapshot((data) => {
+        callback(data.docs);
+      });
   }
+
+  // getFriendList(user) {
+  //   return data
+  //     .collection("users")
+  //     .doc(user.uid)
+  //     .collection("friendList")
+  //     .get();
+  // }
 
   removeCategory(user, categoryId) {
     return data
