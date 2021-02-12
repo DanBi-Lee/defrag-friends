@@ -32,7 +32,7 @@ function FriendListContainer ({user}) {
         }
         getFriendList().then((data)=>setFriendList(()=>data));
 
-        dataService.getCategoryList(user, (list)=>{
+        const unsubscribeCategoryList = dataService.getCategoryList(user, (list)=>{
           const categoryList = list.map(category=>{
             return {
               ...category.data(), id : category.id
@@ -41,6 +41,7 @@ function FriendListContainer ({user}) {
           setCategoryList(()=>categoryList);
         });
         
+        return unsubscribeCategoryList;
     }, [dataService, user]);
 
   return (
