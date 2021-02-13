@@ -7,7 +7,7 @@ function FriendCardContainer ({friend, removeFriend}) {
   const history = useHistory();
   const goToEditPage = () => {
     history.push({
-      pathname : `/friend/${friend.id}`,
+      pathname : `/friend`,
       state : {...friend}
     });
   }
