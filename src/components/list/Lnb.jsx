@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import lnbStyles from './Lnb.module.css';
 
 function Lnb ({friendList, categoryList, name, addCategory, setSelectState, selectState, removeCategory}) {
@@ -37,9 +38,9 @@ function Lnb ({friendList, categoryList, name, addCategory, setSelectState, sele
   return (
     <nav className={lnbStyles.lnb}>
     <p className={lnbStyles.welcomeMessage}>{name}님, 환영합니다.</p>
-    <button className={lnbStyles.btn}>
+    <Link to="/friend" className={lnbStyles.btn}>
         <i className="fas fa-plus"></i> 새 친구 등록
-    </button>
+    </Link>
     <p>
       <button onClick={()=>selectCategory({isSelect: false})}>전체 친구 ({friendList.length}명)</button>
     </p>
