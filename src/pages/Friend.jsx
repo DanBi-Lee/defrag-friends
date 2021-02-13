@@ -59,6 +59,7 @@ function Friend ({setLoginModal, user}) {
   const handlingSaveBtn = (isEditMode) =>{
     if(!user){
       alert('로그인 후 이용 가능');
+      setLoginModal(true);
       return;
     }
 

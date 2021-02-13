@@ -17,7 +17,6 @@ function MemberModalBox ({authservice, closeModal, history}) {
         const data = await authservice.loginWithSNS(sns);
         console.log(`로그인 완료! ${data}`);
         closeModal();
-        history.push('/list');
     }
 
     const emailLogin = async (event) => {
