@@ -17,14 +17,13 @@
   left: 50%;
 }
 
-.deleteBtn {
+.buttonBox {
   position: absolute;
   top: 0px;
   right: 0px;
   z-index: -1;
 }
 
-.cardWrap:hover .deleteBtn,
-.deleteBtn:focus {
+.cardWrap:hover .buttonBox {
   z-index: 1;
 }

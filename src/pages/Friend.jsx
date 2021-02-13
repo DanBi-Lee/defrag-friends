@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import SubHeader from '../components/common/SubHeader';
-import FriendBox from '../components/friend/FriendBox';
 import Loading from '../components/loading/Loading';
 import LoadingSuccess from '../components/loading/LoadingSuccess';
 import SubMainBox from '../components/templates/SubMainBox';
+import FriendBoxContainer from '../containsers/FriendBoxContainer';
 import DataService from '../service/data_service';
 import ImageService from '../service/image_service';
 
 function Friend ({setLoginModal, user}) {
   const dataService = new DataService();
   const imageService = new ImageService();
-  const [imgData, setImgData] = useState({});
+  const [imgData, setImgData] = useState(false);
   const [loading, setLoading] = useState('ready');
 
   const initFriendState = {
@@ -22,41 +22,47 @@ function Friend ({setLoginModal, user}) {
     email: '이메일',
     stie : '블로그, 웹사이트',
     instagram : '', 
-    kakaoTalk : '', 
+    kakaotalk : '', 
     twitter: '', 
     facebook: '',
     memo: `메모`,
     birthday: '1900-01-01'
   }
   const [friendInfo, setFriendInfo] = useState(initFriendState);
-  console.log(friendInfo);
 
   const uploadImg = () => {
+    if(imgData === false){
+      return friendInfo.thumb;
+    }
     return imageService.uploadImg(imgData).then((response)=> response.text()).then((data)=>JSON.parse(data).url);
   }
-  const saveFriend = (friendInfo) => {
-    return dataService.addFriend(user, friendInfo);
-  };
-  const setImg = async (thumb) => {
+  const setImg = async (friendInfo, thumb) => {
     return {...friendInfo, thumb : thumb || ''};
   }
 
-  const uploadImgThenSaveFriend = async () => {
-    console.log('업로드시작')
+  const SaveFriend = async () => {
     setLoading(()=>'loading');
     const thumb = await uploadImg();
-    const copy_info = await setImg(thumb);
-    await saveFriend(copy_info);
-    console.log('업로드 끝');
+    const copy_info = await setImg(friendInfo, thumb);
+    await dataService.addFriend(user, copy_info);
     setLoading(()=>'success');
   }
 
-  const handlingSaveBtn = () =>{
+  const UpdateFriend = async () => {
+    setLoading(()=>'loading');
+    const thumb = await uploadImg();
+    const copy_info = await setImg(friendInfo, thumb);
+    await dataService.updateFriend(user, copy_info);
+    setLoading(()=>'success');
+  }
+
+  const handlingSaveBtn = (isEditMode) =>{
     if(!user){
       alert('로그인 후 이용 가능');
       return;
     }
-    uploadImgThenSaveFriend();
+
+    isEditMode ? UpdateFriend() : SaveFriend() ;
   }
 
 const loadingSpinner = useCallback(() => {
@@ -71,7 +77,7 @@ const loadingSpinner = useCallback(() => {
     <>
         <SubHeader setLoginModal={setLoginModal} user={user} />
         <SubMainBox>
-            <FriendBox saveData={handlingSaveBtn} friendInfo={friendInfo} setFriendInfo={setFriendInfo} setImgData={setImgData} user={user}  />
+            <FriendBoxContainer saveData={handlingSaveBtn} friendInfo={friendInfo} setFriendInfo={setFriendInfo} setImgData={setImgData} user={user}  />
         </SubMainBox>
         {loadingSpinner()}
     </>

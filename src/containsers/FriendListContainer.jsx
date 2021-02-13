@@ -22,16 +22,6 @@ function FriendListContainer ({user}) {
     }
 
     useEffect(()=>{
-        // const getFriendList = async () => {
-        //   const list = [];
-        //   const data = await dataService.getFriendList(user);
-        //   data.forEach(function(doc){
-        //     list.push({...doc.data(), id : doc.id });
-        //   });
-        //   return list;
-        // }
-        // getFriendList().then((data)=>setFriendList(()=>data));
-
         const unsubscribeFriendList = dataService.getFriendList(user, (list)=>{
           const friendList = list.map(friend=>{
             return {
