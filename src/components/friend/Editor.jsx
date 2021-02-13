@@ -28,7 +28,7 @@ function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
 
     useEffect(()=>{
         if(user){
-            dataService.getCategoryList(user, (list)=>{
+            const unscribeCategoryList = dataService.getCategoryList(user, (list)=>{
                 const categoryList = list.map(category=>{
                   return {
                     ...category.data(), id : category.id
@@ -36,6 +36,10 @@ function Editor ({friendInfo, setFriendInfo, setImgData, user}) {
                 });
                 setCategoryList(()=>categoryList);
               });
+            
+            return ()=>{
+                unscribeCategoryList();
+            }
         }
     }, [user, setCategoryList, dataService]);
 
