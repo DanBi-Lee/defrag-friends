@@ -1,10 +1,11 @@
 import React from 'react';
 import cardStyles from './Card.module.css';
+import basicThumb from '../../images/basic_thumb.jpg';
 
 function Card ({friendInfo}) {
   return (
       <div className={cardStyles.card}>
-            <img src={friendInfo.thumb} alt="" className={cardStyles.thumb}/>
+            <img src={friendInfo.thumb || basicThumb} alt="" className={cardStyles.thumb} />
             <div className={cardStyles.nameBox}>
                 <p className={cardStyles.name}>{friendInfo.name}</p>
                 <p className={cardStyles.nickname}>{friendInfo.nickname}</p>
