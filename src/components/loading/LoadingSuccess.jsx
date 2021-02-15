@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ModalBox from '../templates/ModalBox';
 import LoadingStyles from './Loading.module.css';
 
-function LoadingSuccess ({setLoading}) {
+function LoadingSuccess ({setLoading, setFriendInfo, initFriendState, isEditMode, setImgData}) {
   const onBack = () => {
     setLoading(()=>'ready');
+    setFriendInfo(initFriendState);
+    setImgData(false);
   }
+  const history = useHistory();
 
+  if(isEditMode){
+    history.push('/list');
+  }
   return (
       <ModalBox>
           <section>
