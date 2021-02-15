@@ -10,6 +10,7 @@
   box-sizing: border-box;
   font-size: 24px;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .thumb {
