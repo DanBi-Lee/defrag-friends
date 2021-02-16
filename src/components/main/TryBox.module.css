@@ -1,0 +1,18 @@
+.tryBox {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 20px;
+  background: #1e243d;
+  color: #fff;
+  border-radius: 40px;
+}
