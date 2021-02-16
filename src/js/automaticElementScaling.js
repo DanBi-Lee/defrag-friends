@@ -3,8 +3,6 @@ export default class ElementSetting {
     this.parent = parent.current;
     this.children = children.current;
 
-    console.log(this.parent.clientWidth, this.children);
-
     this.setParentRatio(this.parent);
     this.setChilrenRatio(this.children);
   }

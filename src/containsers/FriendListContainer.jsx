@@ -14,11 +14,11 @@ function FriendListContainer ({user}) {
       }
     
     const removeCategory = (categoryId) => {
-      dataService.removeCategory(user, categoryId).then(()=>console.log('삭제 완료'));
+      dataService.removeCategory(user, categoryId);
     }
 
     const removeFriend = (friendId) => {
-      dataService.removeFriend(user, friendId).then(()=>console.log('삭제 완료!'));
+      dataService.removeFriend(user, friendId);
     }
 
     useEffect(()=>{

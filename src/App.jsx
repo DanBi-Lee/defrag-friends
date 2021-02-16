@@ -13,9 +13,6 @@ function App() {
   const authservice = new AuthService();
   const [loginModal, setLoginModal] = useState(false);
   const [user, setUser] = useState(null);
-  if(user){
-    console.log(user.uid);
-  }
   authservice.checkLogin(user=>{
     if(user){
       setUser(()=>user);
