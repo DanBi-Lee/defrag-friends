@@ -4,15 +4,15 @@
 
 .friendList h2 {
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .friendList > ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .friendList > ul > li {
-  width: 33%;
-  margin-top: 20px;
+  width: 100%;
 }

@@ -13,3 +13,8 @@
   height: inherit;
   margin: 0 auto;
 }
+
+/* PC버전 맞춤 : 1200px 이상 */
+body {
+  min-width: 1200px;
+}

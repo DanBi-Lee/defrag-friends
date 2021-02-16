@@ -11,3 +11,15 @@
   margin-bottom: 20px;
   transform: scale(0.6);
 }
+
+.btn {
+  background: #ea5b18;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 300ms;
+}
+
+.btn:hover {
+  transform: translateY(8px);
+}

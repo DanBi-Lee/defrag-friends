@@ -13,13 +13,13 @@ function SubHeader ({setLoginModal, user}) {
                     <img src={logo} alt="" width="124" />
                 </Link>
             </h1>
-            <form className={headerStyles.searchBox}>
+            {/* <form className={headerStyles.searchBox}>
                 <input type="text"/>
                 <button>
                     <i className="fas fa-search"></i>
                     <span className="hidden">검색</span>
                 </button>
-            </form>
+            </form> */}
             <LoginButton setLoginModal={setLoginModal} user={user} />
         </div>
     </header>

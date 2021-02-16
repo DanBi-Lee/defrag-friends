@@ -40,8 +40,14 @@ function FriendCardContainer ({friend, removeFriend}) {
             </div>
           </div>
           <div className={FriendCardContainerStyles.buttonBox}>
-            <button onClick={goToEditPage}>수정</button>
-            <button onClick={()=>removeFriend(friend.id)}>삭제</button>
+            <button className={FriendCardContainerStyles.edit} onClick={goToEditPage} title="수정">
+              <i className="fas fa-edit"></i>
+              <span className="hidden">수정</span>
+            </button>
+            <button className={FriendCardContainerStyles.delete}  onClick={()=>removeFriend(friend.id)} title="삭제">
+              <i className="fas fa-trash-alt"></i>
+              <span className="hidden">삭제</span>
+            </button>
           </div>
         </div>
       </li>

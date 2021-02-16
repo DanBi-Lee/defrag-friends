@@ -29,9 +29,9 @@ function PreviewBox ({saveData, friendInfo,isEditMode}) {
       </div>
     {
       isEditMode? 
-      <button onClick={saveData}>정보 수정</button>
+      <button onClick={saveData} className={PreviewBoxStyles.btn}>정보 수정</button>
       :
-      <button onClick={saveData}>친구등록</button>
+      <button onClick={saveData} className={PreviewBoxStyles.btn}>친구등록</button>
     }
     
 </div>
