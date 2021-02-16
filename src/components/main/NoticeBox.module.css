@@ -1,0 +1,24 @@
+.noticeBox {
+  background-color: #c4c4c4;
+  padding: 120px 0px;
+}
+
+.noticeBox > [class^="wrapInner"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 200px;
+  margin-right: 60px;
+}
+
+.title {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.title ~ p {
+  font-size: 20px;
+}
