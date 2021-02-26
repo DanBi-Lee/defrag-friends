@@ -1,5 +1,6 @@
 .howToUse {
   padding: 100px 0px;
+  word-break: keep-all;
 }
 
 .howToUse > [class^="wrapInner"] {
@@ -25,4 +26,36 @@
   width: 50%;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
   border-radius: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .explanation {
+    margin-right: 80px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .howToUse > [class^="wrapInner"] {
+    flex-direction: column;
+  }
+
+  .explanation {
+    margin-right: 0px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .howToUse {
+    padding: 60px 0px;
+  }
+  .title {
+    font-size: 40px;
+  }
 }

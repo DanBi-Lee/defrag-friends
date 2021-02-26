@@ -22,3 +22,25 @@
 .title ~ p {
   font-size: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .noticeBox {
+    padding: 80px 0px;
+  }
+  .noticeBox > [class^="wrapInner"] {
+    flex-direction: column;
+  }
+  .icon {
+    width: 120px;
+    margin: 0px;
+    margin-bottom: 40px;
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+}

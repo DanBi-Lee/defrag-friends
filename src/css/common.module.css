@@ -9,12 +9,9 @@
 }
 
 [class^="wrapInner"] {
-  max-width: 1180px;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
   height: inherit;
   margin: 0 auto;
-}
-
-/* PC버전 맞춤 : 1200px 이상 */
-body {
-  min-width: 1200px;
 }

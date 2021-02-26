@@ -4,7 +4,6 @@
   height: 600px;
   padding-top: 80px;
   background: linear-gradient(180deg, #142a77 0%, #6047a5 47.4%, #bc88ff 100%);
-  text-align: center;
   color: #fff;
   z-index: 0;
 }
@@ -42,7 +41,6 @@
   background-color: #1e243d;
   color: #fff;
 }
-
 
 /* decoration */
 .decoration {
@@ -92,4 +90,41 @@
   bottom: 20px;
   left: 50%;
   margin-left: 350px;
+}
+
+@media screen and (max-width: 900px) {
+  .visualBox [class^="wrapInner"] {
+    align-items: start;
+    justify-content: center;
+  }
+
+  .desc {
+    margin: unset;
+  }
+
+  .decoLeftShape {
+    display: none;
+  }
+
+  .decoRightShape {
+    top: -30px;
+    left: 50%;
+    margin-left: 0px;
+    animation: move 2s ease alternate infinite;
+  }
+
+  .decoLeftPeople {
+    display: none;
+  }
+
+  .decoRightPeople {
+    bottom: -10px;
+    margin-left: -80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .visualBox h1 {
+    font-size: 40px;
+  }
 }

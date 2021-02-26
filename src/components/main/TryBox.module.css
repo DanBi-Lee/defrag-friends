@@ -16,3 +16,9 @@
   color: #fff;
   border-radius: 40px;
 }
+
+@media screen and (max-width: 600px) {
+  .tryBox {
+    padding: 80px 20px;
+  }
+}
