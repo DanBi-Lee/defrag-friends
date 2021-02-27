@@ -9,3 +9,9 @@
   display: flex;
   margin: 0px auto;
 }
+
+@media screen and (max-width: 1000px) {
+  .friendBox > .innerWrap {
+    flex-direction: column;
+  }
+}

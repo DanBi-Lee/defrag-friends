@@ -3,3 +3,9 @@
   display: flex;
   height: calc(100vh - 80px);
 }
+
+@media screen and (max-width: 600px) {
+  .mainBox {
+    height: calc(100vh - 56px);
+  }
+}

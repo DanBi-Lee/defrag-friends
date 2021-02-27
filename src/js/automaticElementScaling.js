@@ -18,6 +18,7 @@ export default class ElementSetting {
   }
 
   setScale(parent) {
+    this.setParentRatio(this.parent);
     if (this.parentRatio < this.childrenRatio) {
       const scale =
         (parent.current.clientWidth - 10) / this.children.clientWidth;
