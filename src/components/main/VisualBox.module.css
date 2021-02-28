@@ -127,4 +127,12 @@
   .visualBox h1 {
     font-size: 40px;
   }
+
+  .btn {
+    margin-right: 20px;
+  }
+  .btn + .btn {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
 }
