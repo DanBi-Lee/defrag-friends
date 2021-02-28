@@ -4,7 +4,7 @@
 
 친구의 정보를 카드 형태로 저장해주는 사이트입니다.
 
-- [친구 조각 모음 사이트 링크](https://602b9d6d0fbf16638c2a13f2--defrag-friends.netlify.app/)
+- [친구 조각 모음 사이트 링크](https://defrag-friends.netlify.app/)
 
 - [친구 조각 모음 개발기](https://actually-i-am.tistory.com/36?category=899779) : 어떻게, 왜 만들었는지 작성한 블로그 포스팅
 
@@ -59,3 +59,4 @@
 ## 업데이트 기록
 
 - 2021-02-16(화) : 주요 기능 구현, 배포
+- 2021-02-28(일) : 반응형 업데이트
