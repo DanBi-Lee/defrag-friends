@@ -8,3 +8,9 @@
   box-sizing: border-box;
   overflow: auto;
 }
+
+@media screen and (max-width: 1200px) {
+  .friendListBox {
+    padding: 20px;
+  }
+}

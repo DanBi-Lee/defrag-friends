@@ -5,6 +5,7 @@
   padding: 40px 20px;
   box-sizing: border-box;
   overflow: auto;
+  background: #fff;
 }
 
 .lnb > .welcomeMessage {
@@ -86,4 +87,37 @@
   top: 0px;
   right: 0px;
   transition: 300ms;
+}
+
+@media screen and (max-width: 1200px) {
+  .lnb {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .lnb {
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: -250px;
+    transition: left 200ms;
+  }
+
+  .slideWrap {
+    z-index: 2000;
+  }
+
+  .slideWrap[class$="on"] .lnb {
+    left: 0px;
+  }
+  .slideWrap[class$="on"] {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
 }

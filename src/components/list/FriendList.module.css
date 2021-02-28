@@ -9,10 +9,22 @@
 
 .friendList > ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(400px, auto));
   grid-gap: 20px;
 }
 
 .friendList > ul > li {
   width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .friendList > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .friendList > ul {
+    grid-template-columns: 1fr;
+  }
 }

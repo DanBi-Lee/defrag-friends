@@ -3,7 +3,7 @@ import FriendListBox from '../components/list/FriendListBox';
 import Lnb from '../components/list/Lnb';
 import DataService from '../service/data_service';
 
-function FriendListContainer ({user}) {
+function FriendListContainer ({user, slideMenu}) {
     const [categoryList, setCategoryList] = useState([]);
     const [friendList, setFriendList] = useState([]);
     const [selectState, setSelectState] = useState({categoryId: '', categoryName: '', isSelect: false});
@@ -48,7 +48,7 @@ function FriendListContainer ({user}) {
 
   return (
       <>
-          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} setSelectState={setSelectState} selectState={selectState} removeCategory={removeCategory} />
+          <Lnb friendList={friendList} categoryList={categoryList} addCategory={addCategory} name={name} setSelectState={setSelectState} selectState={selectState} removeCategory={removeCategory} slideMenu={slideMenu} />
           <FriendListBox user={user}  friendList={friendList} selectState={selectState} removeFriend={removeFriend} /> 
       </>
   );
